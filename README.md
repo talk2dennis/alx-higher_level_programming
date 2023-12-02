@@ -9,4 +9,7 @@
 ## 0x01. Python - if/else, loops, functions
 > More works on Python flows and controls
 
+## 0x02. Python - import & modules
+> More on Python. Completed tasks on python import and modules
+
 
