@@ -33,7 +33,7 @@ int is_palindrome(listint_t **head)
 	}
 	while (start <= (end / 2))
 	{
-		if (buffer[start] != buffer[end - 1])
+		if (buffer[start] != buffer[end - 1 - start])
 		{
 			free(buffer);
 			return (0);
