@@ -39,7 +39,6 @@ int is_palindrome(listint_t **head)
 			return (0);
 		}
 		start++;
-		end--;
 	}
 	free(buffer);
 	return (1);
