@@ -10,13 +10,13 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *current;
-	int start = 0, end = 0, *buffer = NULL;
+	int start = 0, end = 0, buffer[1024];
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
 	current = *head;
-	while (current != NULL)
+	/**while (current != NULL)
 	{
 		current = current->next;
 		end++;
@@ -25,7 +25,7 @@ int is_palindrome(listint_t **head)
 	if (buffer == NULL)
 		return (0);
 	end = 0;
-	current = *head;
+	current = *head;*/
 	while (current != NULL)
 	{
 		buffer[end] = current->n;
@@ -36,12 +36,10 @@ int is_palindrome(listint_t **head)
 	{
 		if (buffer[start] != buffer[end - 1])
 		{
-			free(buffer);
 			return (0);
 		}
 		start++;
 		end--;
 	}
-	free(buffer);
 	return (1);
 }
