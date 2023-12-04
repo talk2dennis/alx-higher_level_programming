@@ -31,7 +31,7 @@ int is_palindrome(listint_t **head)
 		buffer[end] = current->n;
 		current = current->next;
 	}
-	while (start < (end / 2))
+	while (start <= (end / 2))
 	{
 		if (buffer[start] != buffer[end - 1])
 		{
