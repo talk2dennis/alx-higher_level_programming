@@ -14,3 +14,10 @@
 
 ## 0x03. Python - Data Structures: Lists, Tuples
 > The fouth project on Python. These tasks are more on data structures in pythoneg: list, tuples, set, sequence etc
+
+## 0x05. Python - Exceptions
+> Difference between errors and exceptions, how to use them and create custom execptions
+
+
+
+
