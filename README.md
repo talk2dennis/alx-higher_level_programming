@@ -21,5 +21,9 @@
 ## 0x05. Python - Exceptions
 > Difference between errors and exceptions, how to use them and create custom execptions
 
+## 0x06. Python - Classes and Objects
+> This directory contains tasks on python Classes and Objects
+
+
 
 
