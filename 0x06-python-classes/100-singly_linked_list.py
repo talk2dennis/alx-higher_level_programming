@@ -2,7 +2,9 @@
 creates a Node class and SinglyLinkedList class
 """
 
+
 class Node:
+
     """
     defines a Node class, used to add node to a linked list
     Args:
@@ -20,18 +22,17 @@ class Node:
         """
         if not isinstance(data, int):
             raise TypeError("data must be an integer")
-        self.__data= data
-        if not isinstance(next_node, Node) and\
-                next_node is not None:
-                    raise TypeError("next_node must be a Node object")
-                self.__next_node = next_node
+        self.data = data
+        if not isinstance(next_node, Node) and next_node is not None:
+            raise TypeError("next_node must be a Node object")
+        self.next_node = next_node
 
         @property
         def data(self):
             """
             return the data
             """
-            return.__data
+            return self.__data
 
         @data.setter
         def data(self, value):
@@ -52,10 +53,10 @@ class Node:
         @next_node.setter
         def next_node(self, value):
             """ setter for next_node """
-            if not next_node == None and\
-                    not isinstance(value, Node)
-                    raise TypeError("next_node must be a node object")
-                self.__next_node = value
+            if next_node is not None and \
+                    not isinstance(value, Node):
+                raise TypeError("next_node must be a node object")
+            self.__next_node = value
 
 
 class SinglyLinkedList:
@@ -66,7 +67,23 @@ class SinglyLinkedList:
         self.__head = None
 
     def __str__(self):
-        return "linked list"
+        tmp = self.__head
+        new_list = []
+        while tmp:
+            new_list.append(str(tmp.data))
+            tmp = tmp.next_node
+        return ("\n".join(new_list))
 
     def sorted_insert(self, value):
-        if self.__head == None:
+        tmp = Node(value)
+        if self.__head is None:
+            self.__head = tmp
+        elif self.__head.data > value:
+            tmp.next_node = self.__head
+            self.__head = tmp
+        else:
+            aux = self.__head
+            while aux.next_node and aux.next_node.data < value:
+                aux = aux.next_node
+            tmp.next_node = aux.next_node
+            aux.next_node = tmp
