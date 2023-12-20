@@ -75,7 +75,6 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
-
     def my_print(self):
         """
         defines a public method my_print
