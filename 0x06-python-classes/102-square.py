@@ -1,4 +1,4 @@
-#!/usr/bin/python3:
+#!/usr/bin/python3
 """
 Defines a class Square
 
@@ -8,15 +8,11 @@ Defines a class Square
 class Square:
     """ Square is a class with private instance atrinbue of size"""
 
-    def __init__(self, size=0, position=(0, 0)):
+    def __init__(self, size=0):
         """
         creates a new instance of a Square
         Args:
             size: size of the square
-            position: tuple
-        Raises:
-            TypeError: if int was not provided
-            ValueError: if value is less than 0
         """
 
         if not isinstance(size, int):
@@ -24,7 +20,6 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
-        self.__position = position
 
     def area(self):
         """
@@ -45,9 +40,6 @@ class Square:
     def size(self, value):
         """
         defines setter for private instance of size
-        Raises:
-            TypeError: if int was not provided
-            ValueError: if less than 0
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
@@ -55,47 +47,40 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
-    @property
-    def position(self):
+    def __eq__(self, other):
         """
-        defines a property method that returns the position
+        compares this instance of equal to other instance
         """
-        return (self.__position)
+        return self.__size == other.__size
 
-    @position.setter
-    def position(self, value):
+    def __lt__(self, other):
         """
-        defines a setter for ppsition
+        compares self, if less than the other
         """
+        return self.__size < other.__size
 
-        if (not isinstance(value, tuple) or
-                len(value) != 2 or
-                not all(isinstance(num, int) for num in value) or
-                not all(num >= 0 for num in value)):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
+    def __le__(self, other):
+        """
+        compares self, returns true if greater than others
+        """
+        return self.__size <= other.__size
 
-    def my_print(self):
+    def __gt__(self, other):
         """
-        defines a public method my_print
+        compares self if greater than other
         """
-        if self.__size == 0:
-            print()
-        else:
-            for i in range(self.__position[1]):
-                print()
-            for j in range(self.__size):
-                for k in range(self.__position[0]):
-                    print(" ", end="")
-                print("#" * (self.__size))
+        return self.__size > other.__size
+
+    def __ge__(self, other):
+        """
+        compares self if greater than or equal to other
+        """
+        return self.__size >= other.__size
 
     def __str__(self):
-        """Define the print() representation of a Square."""
-        if self.__size != 0:
-            [print("") for i in range(0, self.__position[1])]
-        for i in range(0, self.__size):
-            [print(" ", end="") for j in range(0, self.__position[0])]
-            [print("#", end="") for k in range(0, self.__size)]
-            if i != self.__size - 1:
-                print("")
-        return ("")
+        """"
+        defines string representation of the class square
+        Return:
+            returns the size of the square
+        """
+        return self.__size
