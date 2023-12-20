@@ -16,8 +16,8 @@ class Node:
         """
         defines init method
         Args:
-            data: int to add
-            next_node: address of next node
+            data(int): int to add
+            next_node(Node): address of next node
         Raise:
             TypeError
         """
@@ -38,9 +38,9 @@ class Node:
         @data.setter
         def data(self, value):
             """
-            sets the data
+            defines getter that sets data
             Args:
-                value: int to add
+                value(int): int to add
             Raise:
                 TypeError if int was not provided
             """
@@ -60,7 +60,9 @@ class Node:
             """
             setter for next_node
             Args:
-                value: int to add
+                value(int): int to add
+            Raise:
+                TypeError
             """
             if next_node is not None and \
                     not isinstance(value, Node):
@@ -74,7 +76,7 @@ class SinglyLinkedList:
     """
     def __init__(self):
         """
-        defines init method
+        defines init method which initializes the class
         """
         self.__head = None
 
@@ -93,7 +95,7 @@ class SinglyLinkedList:
         """
         defines sorted_insert method which inserts node in sorted order
         Args:
-            value: int to add
+            value(Node): int to add
         """
         tmp = Node(value)
         if self.__head is None:
