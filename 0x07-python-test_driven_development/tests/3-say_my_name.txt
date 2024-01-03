@@ -1,0 +1,21 @@
+Import the function say_my_name:
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+Try with on Argurement:
+>>> say_my_name("Bob")
+My name is Bob 
+
+Try with one argument not a string:
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+>>> say_my_name("Walter", 123.5)
+Traceback (most recent call last):
+        ...
+TypeError: last_name must be a string
+

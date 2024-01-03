@@ -2,6 +2,7 @@
 """
 matrix_divided - a function that divides list of lists of integers or floats.
 Args: matrix of lists
+Return: list of lists
 """
 
 
