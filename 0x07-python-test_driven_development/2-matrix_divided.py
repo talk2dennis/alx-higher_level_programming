@@ -22,7 +22,11 @@ def matrix_divided(matrix, div):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    size = 0
+    if not matrix:
+        raise TypeError("matrix must be a matrix (list of lists)"
+                            " of integers/floats")
+    if not all(len(lists) == len(matrix[0]) for lists in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
     for lists in matrix:
         if not isinstance(lists, list) or \
                 not all(isinstance(item, (int, float)) for item in lists):
