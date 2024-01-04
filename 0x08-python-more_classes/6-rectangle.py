@@ -11,6 +11,7 @@ class Rectangle:
         width: a private attribute
     """
     number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """ initialising the Retangle class """
         self.__height = height
