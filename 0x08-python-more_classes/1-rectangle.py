@@ -20,6 +20,14 @@ class Rectangle:
         """ getter for field width """
         return self.__width
 
+    @property
+    def height(self):
+        """
+        A method to get the height attribute
+        Return: the height
+        """
+        return self.__height
+
     @width.setter
     def width(self, value):
         """
@@ -34,14 +42,7 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-
-    @property
-    def height(self):
-        """
-        A method to get the height attribute
-        Return: the height
-        """
-        return self.__height
+            self.__width = value
 
     @height.setter
     def height(self, value):
