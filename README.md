@@ -28,6 +28,16 @@
 > This directory contains python projects with test casses.
 > Using Doctest and Unitest and Test Driven Design Approach
 
+## 0x08. Python - More Classes and Objects
+> This folder contains projects on python OOP concepts
+- What are and how to use public, protected and private attributes
+- What is self
+- What is a method
+- What is the special __init__ method and how to use it
+- What is Data Abstraction, Data Encapsulation, and Information Hiding
+- What is a property
+- What is the difference between an attribute and a property in Python
+- What is the Pythonic way to write getters and setters in Python
 
 
 
