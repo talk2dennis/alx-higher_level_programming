@@ -95,7 +95,7 @@ class Rectangle:
         """
         to create a new instance of square from the rectangle class
         """
-        return cls(size, size)
+        return Rectangle(size, size)
 
     def __str__(self):
         """
