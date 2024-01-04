@@ -15,7 +15,7 @@ class Rectangle:
         """ initialising the Retangle class """
         self.__height = height
         self.__width = width
-        number_of_instances += 1
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -88,5 +88,5 @@ class Rectangle:
                 + str(self.__height) + ")"
 
     def __del__(self):
-        number_of_instances -= 1
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
