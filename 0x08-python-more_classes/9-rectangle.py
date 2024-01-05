@@ -102,7 +102,7 @@ class Rectangle:
         if not isinstance(size, int):
             raise TypeError("width must be an integer\nBye rectangle...")
         if size <= 0:
-            raise ValueError("size must be >= 0\nBye rectangle...")
+            raise ValueError("width must be >= 0\nBye rectangle...")
         return cls(size, size)
 
     def __str__(self):
