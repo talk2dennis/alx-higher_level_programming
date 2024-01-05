@@ -100,9 +100,9 @@ class Rectangle:
             returns the new instance of square
         """
         if not isinstance(size, int):
-            raise TypeError("size must be an integer")
+            raise TypeError("width must be an integer\nBye rectangle...")
         if size <= 0:
-            raise ValueError("size must be >= 0")
+            raise ValueError("size must be >= 0\nBye rectangle...")
         return cls(size, size)
 
     def __str__(self):
