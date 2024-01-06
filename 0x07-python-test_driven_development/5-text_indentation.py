@@ -24,4 +24,5 @@ def text_indentation(text):
     new_text = text
     for delim in delimeters:
         new_text = (delim + "\n\n").join([word.strip(" ") for word in new_text.split(delim)])
-    print(new_text)
+    # new_text = new_text[1:(len(new_text) - 2)]
+    print(new_text, end='')
