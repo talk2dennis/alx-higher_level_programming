@@ -11,3 +11,12 @@
 >>> my_list = MyList()
 >>> my_list.print_sorted()
 []
+
+>>> my_list2.print_sorted()
+Traceback (most recent call last):
+    ...
+NameError: name 'my_list2' is not defined
+
+>>> my_list = MyList([-4, 4, -1, 6, 21])
+>>> my_list.print_sorted()
+[-4, -1, 4, 6, 21]
