@@ -30,7 +30,7 @@ def matrix_divided(matrix, div):
     for lists in matrix:
         if not isinstance(lists, list) or \
                 not all(isinstance(item, (int, float)) for item in lists):
-            raise TypeError("matrix must be a matrix (list of lists)"
+            raise TypeError("matrix must be a matrix (list of lists)\
                             " of integers/floats")
 
     return [[round(element / div, 2) for element in lists] for lists in matrix]
