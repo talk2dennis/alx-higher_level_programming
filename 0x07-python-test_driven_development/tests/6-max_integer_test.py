@@ -9,11 +9,8 @@ class testMaxInteger(unittest.TestCase):
     """unittests for max_integer([..])"""
 
     def test_max(self):
-        """
-        text case for max_integer
-        """
+        """text case for max_integer"""
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
-        self.assertEqual(max_integer([1, 3, 4, 2]), 4)
 
     def test_max_float(self):
         """test case for max float"""
@@ -27,6 +24,13 @@ class testMaxInteger(unittest.TestCase):
         """test case for empty string"""
         self.assertEqual(max_integer(""), None)
 
+    def test_max_neg(self):
+        """test for one negative number"""
+        self.assertEqual(max_integer([20, -10, 3, 4.0]), 20)
+
+    def test_max_negs(self):
+        """test with more negative numbers"""
+        self.assertEqual(max_integer([-20, -10, -3, -4.0]), -3)
 
 if __name__ == '__main__':
     unittest.main()
