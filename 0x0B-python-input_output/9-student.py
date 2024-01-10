@@ -7,7 +7,7 @@ Arthor: Adigwe Dennis
 
 class Student:
     """
-    Difines class Student
+    Defines class Student
     Args:
         first_name (str): first_name of the student
         last_name (str): last name of student
@@ -17,6 +17,6 @@ class Student:
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-    
+
     def to_json(self):
         return vars(self).copy()
