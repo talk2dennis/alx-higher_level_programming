@@ -118,6 +118,14 @@ class Rectangle(Base):
             if i == 4:
                 self.y = args[i]
 
+    def to_dictionary(self):
+        """ converts the rectangle attributes to dict"""
+        return {"id": self.id,
+                "width": self.width,
+                "height": self.height,
+                "x": self.x,
+                "y": self.y}
+
     def display(self):
         """display - a public method that displays with # the rectangle"""
         for i in range(self.y):

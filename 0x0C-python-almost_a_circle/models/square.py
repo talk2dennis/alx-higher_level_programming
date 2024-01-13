@@ -60,6 +60,13 @@ class Square(Rectangle):
                     if k == "y":
                         self.y = v
 
+    def to_dictionary(self):
+        """ converts class square atteibutes to a dict"""
+        return {"id": self.id,
+                "size": self.size,
+                "x": self.x,
+                "y": self.y}
+
     def __str__(self):
         """ returns the string representation of the class square"""
         return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
