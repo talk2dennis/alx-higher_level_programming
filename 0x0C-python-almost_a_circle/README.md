@@ -41,5 +41,5 @@
 > Write the class Square that inherits from Rectangle:
 > In the file models/square.py
 > Class Square inherits from Rectangle
-> Class constructor: ``def __init__(self, size, x=0, y=0, id=None):```
+> Class constructor: ```def __init__(self, size, x=0, y=0, id=None):```
 
