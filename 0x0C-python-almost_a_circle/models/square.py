@@ -16,9 +16,10 @@ class Square(Rectangle):
             y (int): the y cordinate of Square instance
             id (int): default None, automatically generated else asigned id
         """
-        super().__init__(size, size, x=0, y=0, id=None)
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """ returns the string representation of the class square"""
-        return "[{}] (<id>) <{}>/<{}> - <{}>".format(self.__class__.__name__,
-                                                     self.x, self.y, self.width)
+        return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
+                                                     self.id, self.x, self.y,
+                                                     self.width)
