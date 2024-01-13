@@ -86,9 +86,27 @@ class Rectangle(Base):
         """returns the area of the rectangle"""
         return self.width * self.height
 
+    def update(self, *args):
+        """update rectangle with the variable args supplied"""
+        for i in range(len(args)):
+            if i == 0:
+                super().__init__(args[i])
+            if i == 1:
+                self.width = args[i]
+            if i == 2:
+                self.height = args[i]
+            if i == 3:
+                self.x = args[i]
+            if i == 4:
+                self.y = args[i]
+
     def display(self):
         """display - a public method that displays with # the rectangle"""
+        for i in range(self.y):
+            print()
         for i in range(self.height):
+            for space in range(self.x):
+                print(" ", end='')
             print("#" * self.width)
 
     def __str__(self):
