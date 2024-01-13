@@ -86,8 +86,26 @@ class Rectangle(Base):
         """returns the area of the rectangle"""
         return self.width * self.height
 
-    def update(self, *args):
-        """update rectangle with the variable args supplied"""
+    def update(self, *args, **kwargs):
+        """
+        update - update rectangle with the variable args or kwargs supplied
+        if args not supplied, kwargs will be used
+        Args:
+            *args (tuple): variable number of argument
+            **kwargs (dict): key word argument
+        """
+        if not args:
+            for k, v in kwargs.items():
+                if k == "id":
+                    super().__init__(v)
+                if k == "width":
+                    self.width = v
+                if k == "height":
+                    self.height = v
+                if k == "x":
+                    self.x = v
+                if k == "y":
+                    self.y = v
         for i in range(len(args)):
             if i == 0:
                 super().__init__(args[i])
