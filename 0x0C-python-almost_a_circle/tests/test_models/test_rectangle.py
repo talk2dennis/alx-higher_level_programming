@@ -115,6 +115,33 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             Rectangle(15, 0)
 
+    def test_no_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(3, 7, None)
+
+    def test_x_str(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(9, 21, "4", 2)
+
+    def test_x_float(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(5, 3, 11.2, 9)
+
+    def test_no_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(3, 7, 10, None)
+
+    def test_x_str(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(9, 21, 2, "4")
+
+    def test_x_float(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 3, 5, 11.2)
+
+    def test_y_neg(self):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Rectangle(2, 15, 10, -5)
 
 
 
