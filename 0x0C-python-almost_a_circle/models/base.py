@@ -23,7 +23,7 @@ class Base:
         Returns:
             str: JSON-formatted string.
         """
-        if list_dictionaries is None:
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -37,7 +37,7 @@ class Base:
         """
         filename = cls.__name__ + ".json"
         with open(filename, "w") as f:
-            if list_objs is None or list_dictionaries == "[]":
+            if list_objs is None:
                 f.write("[]")
             else:
                 lts = [word.to_dictionary() for word in list_objs]
@@ -52,7 +52,7 @@ class Base:
             json_string: is a string representing a list of dictionaries
         """
         if json_string is None or json_string == "[]":
-            return "[]"
+            return []
         return json.loads(json_string)
 
     @classmethod
