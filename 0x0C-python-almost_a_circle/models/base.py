@@ -43,6 +43,19 @@ class Base:
                 lts = [word.to_dictionary() for word in list_objs]
                 f.write(Base.to_json_string(lts))
 
+    @classmethod
+    def load_from_file(cls):
+        """
+        load_from_file - that returns a list of instances
+        """
+        filename = str(cls.__name__) + ".json"
+        try:
+            with open(filename, "r") as f:
+                dictionaries = Base.from_json_string(f.read())
+            return [cls.create(**dictionary) for dictionary in dictionaries]
+        except IOError:
+            return []
+
     @staticmethod
     def from_json_string(json_string):
         """
