@@ -23,7 +23,7 @@ class Base:
         Returns:
             str: JSON-formatted string.
         """
-        if list_dictionaries is None or list_dictionaries == []:
+        if list_dictionaries is None or not list_dictionaries:
             return "[]"
         return json.dumps(list_dictionaries)
 
