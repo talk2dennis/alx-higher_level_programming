@@ -2,6 +2,7 @@
 """base module"""
 import json
 
+
 class Base:
     """ base class"""
     __nb_objects = 0
@@ -36,8 +37,35 @@ class Base:
         """
         filename = cls.__name__ + ".json"
         with open(filename, "w") as f:
-            if list_objs is None:
+            if list_objs is None or list_dictionaries == "[]":
                 f.write("[]")
             else:
                 lts = [word.to_dictionary() for word in list_objs]
                 f.write(Base.to_json_string(lts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        from_json_string - returns the list of the JSON string
+                           representation json_string
+        Args:
+            json_string: is a string representing a list of dictionaries
+        """
+        if json_string is None or json_string == "[]":
+            return "[]"
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        create - eturns an instance with all attributes already set
+        Args:
+            dictionary (dict): double pointer to a dictionary
+        """
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                new_instance = cls(15, 4)
+            else:
+                new_instance = cls(15)
+            new_instance.update(**dictionary)
+            return new_instance
