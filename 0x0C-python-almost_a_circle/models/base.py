@@ -82,3 +82,44 @@ class Base:
                 new_instance = cls(15)
             new_instance.update(**dictionary)
             return new_instance
+
+     @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw Rectangles and Squares using the turtle module.
+
+        Args:
+            list_rectangles (list): list of rectangles
+            list_squares (list): list of square instances
+        """
+        turt = turtle.Turtle()
+        turt.screen.bgcolor("#eaff7b")
+        turt.pensize(2)
+        turt.shape("turtle")
+
+        turt.color("#000000")
+        for rectangle in list_rectangles:
+            turt.showturtle()
+            turt.up()
+            turt.goto(rectangle.x, rectangle.y)
+            turt.down()
+            for i in range(2):
+                turt.forward(rectangle.width)
+                turt.left(90)
+                turt.forward(rectangle.height)
+                turt.left(90)
+            turt.hideturtle()
+
+        turt.color("#000000")
+        for square in list_squares:
+            turt.showturtle()
+            turt.up()
+            turt.goto(square.x, square.y)
+            turt.down()
+            for i in range(2):
+                turt.forward(square.width)
+                turt.left(90)
+                turt.forward(square.height)
+                turt.left(90)
+            turt.hideturtle()
+
+        turtle.exitonclick()
