@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """base module"""
 import json
+import csv
 
 
 class Base:
@@ -83,10 +84,44 @@ class Base:
             new_instance.update(**dictionary)
             return new_instance
 
-     @staticmethod
-    def draw(list_rectangles, list_squares):
-        """Draw Rectangles and Squares using the turtle module.
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ save list of objects of rectangle or square to csv"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as f:
+            if list_objs is None or list_objs == []:
+                f.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(f, fieldnames)
+                writer.writeheader()
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
 
+    @classmethod
+    def load_from_file_csv(cls):
+        """loads from csv file"""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as f:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    fieldnames = ["id", "size", "x", "y"]
+                next(f)
+                list_objs = csv.DictReader(f, fieldnames=fieldnames)
+                list_dict = [dict([k, int(v)] for k, v in lst_dict.items())
+                             for lst_dict in list_objs]
+                return [cls.create(**dictionary) for dictionary in list_dict]
+        except IOError:
+            return "[]"
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw Rectangles and Squares using the turtle module
         Args:
             list_rectangles (list): list of rectangles
             list_squares (list): list of square instances
