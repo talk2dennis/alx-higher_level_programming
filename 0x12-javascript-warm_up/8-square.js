@@ -6,7 +6,7 @@ if (isNaN(argv[2])) {
   console.log('Missing size');
 } else {
   for (let i = 0; i < parseInt(argv[2]); i++) {
-      let row = '';
+    let row = '';
     for (let j = 0; j < parseInt(argv[2]); j++) {
       row += 'X';
     }
