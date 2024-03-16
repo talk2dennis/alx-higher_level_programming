@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-a script that changes the name of a State object from the
-    database hbtn_0e_6_usa. Change the name of the State where
-    id = 2 to New Mexico
+a script 14-model_city_fetch_by_state.py that prints all City objects
+    from the database hbtn_0e_14_usa
 """
 
 from sys import argv
 from model_state import State, Base
+from model_city import City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -17,10 +17,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # query the database
-    state = session.query(State).filter_by(id == "2").first()
-    state.name = "Mexico"
-    session.commit()
+    # query the database using join
+    results = session.query(State, City).join(City)
+    for state, city in results:
+        print(f"{state.name}: ({city.id}) {city.name}")
 
     # close the session
     session.close()
