@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-a script that changes the name of a State object from the
-    database hbtn_0e_6_usa. Change the name of the State where
-    id = 2 to New Mexico
+script that deletes all State objects with a name containing the
+    letter a from the database hbtn_0e_6_usa
 """
 
 from sys import argv
@@ -18,8 +17,9 @@ if __name__ == "__main__":
     session = Session()
 
     # query the database
-    state = session.query(State).filter(id == "2").first()
-    state.name = "Mexico"
+    states = session.query(State).filter(State.name.like('%a%'))
+    for state in states:
+        session.delete(state)
     session.commit()
 
     # close the session
