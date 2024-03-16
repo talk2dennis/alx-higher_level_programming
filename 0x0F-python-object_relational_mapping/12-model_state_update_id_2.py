@@ -18,7 +18,7 @@ if __name__ == "__main__":
     session = Session()
 
     # query the database
-    state = session.query(State).filter_by(id == "2").first()
+    state = session.query(State).filter_by(id = "2").first()
     state.name = "Mexico"
     session.commit()
 
