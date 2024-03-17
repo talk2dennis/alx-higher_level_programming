@@ -19,9 +19,12 @@ if __name__ == "__main__":
 
     # query the state table and get all her cities
     states = session.query(State)
-    
+
     # prints the states
     for state in states:
-        print(state.name)
-    
+        print(f"{state.id}: {state.name}")
+        # prints the cities for each state
+        for city in state.cities:
+            print(f"\t{city.id}: {city.name}")
+
     session.close()
