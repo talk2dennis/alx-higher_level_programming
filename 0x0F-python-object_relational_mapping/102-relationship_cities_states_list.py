@@ -22,6 +22,6 @@ if __name__ == "__main__":
 
     # prints the city and the state
     for city in cities:
-        print(f"{city.name} -> {city.state.name}")
+        print(f"{city.id}: {city.name} -> {city.state.name}")
 
     session.close()
