@@ -20,6 +20,6 @@ if __name__ == '__main__':
         if result == {}:
             print("No result")
         else:
-            print(f"{[result['id']} {result['name']}")
+            print(f"[{result['id']}] {result['name']}")
     except ValueError:
         print("Not a valid JSON")
