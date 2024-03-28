@@ -15,4 +15,4 @@ if __name__ == '__main__':
         res = requests.get(url)
         print(res.text)
     except requests.RequestException as e:
-        print(e)
+        print(f"Error code: {e}")
