@@ -11,4 +11,3 @@ if __name__ == '__main__':
     print("Body response:")
     print(f"\t- type: {type(html.text)}")
     print(f"\t- content: {html.text}")
-    print(f"\t- utf8 content: {html.text}")
