@@ -23,5 +23,3 @@ if __name__ == '__main__':
             print(f"[{result['id']}] {result['name']}")
     except ValueError:
         print("Not a valid JSON")
-        print("Response Content:", res.text)
-        print(data)
