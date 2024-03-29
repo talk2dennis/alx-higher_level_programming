@@ -13,15 +13,8 @@ if __name__ == '__main__':
     uname = argv[1]
     pwd = argv[2]
     basic = HTTPBasicAuth(uname, pwd)
-    url = f"https://api.github.com/users/{uname}"
+    url = "https://api.github.com/user"
 
     res = requests.get(url, auth=basic)
 
-    if res.status_code == 200:
-        try:
-            result = res.json()
-            print(result['id'])
-        except ValueError:
-            print("None")
-    else:
-        print("None")
+    print(res.json().get('id'))
