@@ -16,7 +16,6 @@ if __name__ == '__main__':
     url = f"https://api.github.com/users/{uname}"
 
     res = requests.get(url, auth=basic)
-    print(res.text)
 
     try:
         result = res.json()
