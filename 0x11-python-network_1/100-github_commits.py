@@ -15,6 +15,9 @@ if __name__ == '__main__':
     res = requests.get(url)
     result = res.json()
     for i in range(10):
-        sha = result[i].get("sha")
-        author = result[i].get("commit").get("author").get("name")
-        print(f"{sha}: {author}")
+        try:
+            sha = result[i].get("sha")
+            author = result[i].get("commit").get("author").get("name")
+            print(f"{sha}: {author}")
+        except IndexError:
+            pass
