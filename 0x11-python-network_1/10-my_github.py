@@ -17,11 +17,11 @@ if __name__ == '__main__':
 
     res = requests.get(url, auth=basic)
 
-    try:
-        result = res.json()
-        if result == {}:
+    if res.status_code == 200:
+        try:
+            result = res.json()
+            print(result['id'])
+        except ValueError:
             print("None")
-        else:
-            print(f"{result['id']}")
-    except ValueError:
+    else:
         print("None")
