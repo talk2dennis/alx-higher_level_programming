@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     res = requests.get(url)
     result = res.json()
-    for repo in result:
-        sha = repo.get("sha")
-        author = repo.get("commit").get("author").get("name")
+    for i in range(10):
+        sha = result[i].get("sha")
+        author = result[i].get("commit").get("author").get("name")
         print(f"{sha}: {author}")
