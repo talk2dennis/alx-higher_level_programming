@@ -12,7 +12,7 @@ if __name__ == '__main__':
     url = "http://0.0.0.0:5000/search_user"
     data = ""
     if len(argv) == 2:
-        data = argv[1]
+        data = {"q" : argv[1]}
 
     res = requests.post(url, data=data)
     try:
@@ -23,3 +23,5 @@ if __name__ == '__main__':
             print(f"[{result['id']}] {result['name']}")
     except ValueError:
         print("Not a valid JSON")
+        print("Response Content:", res.text)
+        print(data)
